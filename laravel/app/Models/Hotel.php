@@ -18,6 +18,6 @@ class Hotel extends Model
 
     public function facilities()
     {
-        return $this->hasMany(Facility::class);
+        return $this->belongsToMany(Facility::class, 'facility_hotel');
     }
 }

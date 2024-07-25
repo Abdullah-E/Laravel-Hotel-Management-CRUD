@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('Hotel Name');
             $table->string('Country');
             $table->string('City');
-            $table->integer('Price');
+            $table->decimal('Price', 8, 2);
         });
     }
 
