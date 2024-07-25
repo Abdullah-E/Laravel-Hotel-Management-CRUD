@@ -38,7 +38,7 @@ This repository contains a Laravel application set up to run with Docker. Follow
 5. **Seed the Database**
 
     ```sh
-    docker-compose exec app db:seed
+    docker-compose exec app php artisan db:seed
     ```
 
 6. **Create a Passport client**
