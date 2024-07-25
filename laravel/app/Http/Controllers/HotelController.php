@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use App\Models\Facility;
+
+use App\Rules\ISOCountryCode;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -37,7 +40,7 @@ class HotelController extends Controller
     {
         $request->validate([
             'Hotel Name' => 'required|string',
-            'Country' => 'required|string',
+            'Country' => ['required', 'string', new ISOCountryCode],
             'City' => 'required|string',
             'Price' => 'required|numeric',
             'facilities' => 'array'
@@ -83,7 +86,7 @@ class HotelController extends Controller
     {
         $request->validate([
             'Hotel Name' => 'string',
-            'Country' => 'string',
+            'Country' => ['string', new ISOCountryCode],
             'City' => 'string',
             'Price' => 'numeric',
             'facilities' => 'array'
